@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --background: #090d16;
+  --foreground: #f8fafc;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-tally-bg: #070b12;
+  --color-tally-panel: #0b1322;
+  --color-tally-header: #0e292d;
+  --color-tally-teal: #086d67;
+  --color-tally-teal-dark: #054844;
+  --color-tally-teal-light: #12b0a6;
+  --color-tally-amber: #f59e0b;
+  --color-tally-border: #1e2d42;
+  --color-tally-border-focus: #14b8a6;
+  --color-tally-text: #f8fafc;
+  --color-tally-muted: #64748b;
+  --color-tally-emerald: #10b981;
+  --color-tally-rose: #ef4444;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070b12;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2d42;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #086d67;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom keyboard-focus outline for inputs and buttons */
+.tally-focus:focus {
+  outline: 2px solid var(--color-tally-teal-light);
+  outline-offset: 1px;
+  background-color: rgba(20, 184, 166, 0.1);
+}
+
+.tally-menu-item.active {
+  background-color: #086d67;
+  color: #ffffff;
+}
+
+/* Text blink for warning/info fields */
+@keyframes pulse-border {
+  0%, 100% { border-color: #1e2d42; }
+  50% { border-color: #f59e0b; }
+}
+
+.warning-pulse {
+  animation: pulse-border 2s infinite;
+}
+
+/* Slide in animation for calculator */
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
